@@ -18,7 +18,7 @@ public class naiveSolution {
                 primeFactor.add(2);
             }
         }
-        for(int i = 3 ; i * i < n ; i +=2 ){ //then loop from 3 to sqrt(n)
+        for(int i = 3 ; i * i <= n ; i +=2 ){ //then loop from 3 to sqrt(n)
             operationCount++;
             while( n % i == 0){
                 operationCount++;
@@ -55,7 +55,10 @@ public class naiveSolution {
         if(cp.isEmpty()){
             return 1;
         }else{
-            int gcd = cp.getLast();
+            int gcd = 1;
+            for(int n : cp){
+                gcd *= n;
+            }
             return gcd;
         }
     }

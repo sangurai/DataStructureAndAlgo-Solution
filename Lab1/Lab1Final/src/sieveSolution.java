@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 public class sieveSolution {
-    int operationCount;
+    long operationCount;
     int m;
     int n;
     sieveSolution(int m, int n){
@@ -57,7 +57,6 @@ public class sieveSolution {
         return factor;
     }
 
-    /// ///////////////////
     public ArrayList<Integer> findCommonPrime(){ //find common prime from n and m
         ArrayList<Integer> pm = findFactorization(m);
         ArrayList<Integer> pn = findFactorization(n);
@@ -79,13 +78,15 @@ public class sieveSolution {
         if(cp.isEmpty()){
             return 1;
         }else{
-            int gcd = cp.get(cp.size()-1);
+            int gcd = 1;
+            for(int n : cp){
+                gcd *= n;
+            }
             return gcd;
         }
-
     }
-    /// ///////////////////
-    public int getOperationCount(){
+
+    public long getOperationCount(){
         return operationCount;
     }
 

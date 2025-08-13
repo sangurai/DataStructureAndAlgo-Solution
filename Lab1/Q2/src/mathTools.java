@@ -1,22 +1,32 @@
 import java.util.ArrayList;
 public class mathTools {
-    mathTools(){
+    int operationCount;
+    int m;
+    int n;
+    mathTools(int m, int n){
         System.out.println("mathTools object is created!");
+        this.m = m;
+        this.n = n;
+        operationCount = 0;
     }
-
     public int[] primeByErathos(int n){
         boolean[] prime = new boolean[n + 1]; //creating all true array
         for (int i = 0; i <= n; i++) {
+            operationCount++;
             prime[i] = true;
         }
         for (int p = 2; p * p <= n; p++) { //marking false position in multiple index
+            operationCount++;
             if (prime[p]) {
-                for (int i = p * p; i <= n; i += p)
+                for (int i = p * p; i <= n; i += p) {
+                    operationCount++;
                     prime[i] = false;
+                }
             }
         }
         int count = 0;
         for (int p = 2; p <= n; p++) { // count number of primes
+            operationCount++;
             if (prime[p])
                 count++;
         }
@@ -24,6 +34,7 @@ public class mathTools {
         int[] res = new int[count];
         int index = 0;
         for (int p = 2; p <= n; p++) {
+            operationCount++;
             if (prime[p])
                 res[index++] = p;
         }
@@ -35,6 +46,7 @@ public class mathTools {
         int[] pbe = primeByErathos(number);
         ArrayList<Integer> factor = new ArrayList<>();
         for(int num : pbe){ //divide number by each prime
+            operationCount++;
             if(number % num == 0){
                 factor.add(num);
                 number /= num;
@@ -44,6 +56,38 @@ public class mathTools {
             factor.add(number);
         }
         return factor;
+    }
+
+    /// ///////////////////
+    public ArrayList<Integer> findCommonPrime(){ //find common prime from n and m
+        ArrayList<Integer> pm = findFactorization(m);
+        ArrayList<Integer> pn = findFactorization(n);
+        ArrayList<Integer> cp = new ArrayList<>();
+        for(int pom : pm){
+            operationCount++;
+            for(int pon : pn){
+                operationCount++;
+                if(pom == pon && !cp.contains(pom)){
+                    cp.add(pom);
+                }
+            }
+        }
+        return cp;
+    }
+
+    public int findGCD(){
+        ArrayList<Integer> cp = findCommonPrime();
+        if(cp.isEmpty()){
+            return 1;
+        }else{
+            int gcd = cp.get(cp.size()-1);
+            return gcd;
+        }
+
+    }
+/// ///////////////////
+    public int getOperationCount(){
+        return operationCount;
     }
 
 }

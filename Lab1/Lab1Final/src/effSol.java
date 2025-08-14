@@ -1,7 +1,7 @@
 public class effSol {
     long m;
     long n;
-    int operationCount;
+    long operationCount;
     effSol(){
     }
 
@@ -26,5 +26,5 @@ public class effSol {
         return gcd;
     }
 
-    public int getOperationCount(){return operationCount;}
+    public long getOperationCount(){return operationCount;}
 }

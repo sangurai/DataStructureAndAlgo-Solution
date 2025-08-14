@@ -2,7 +2,7 @@ import java.util.ArrayList;
 public class naiveSolution {
     int m;
     int n;
-    int operationCount;
+    long operationCount;
     naiveSolution(int m, int n){
         this.m = m;
         this.n = n;
@@ -63,7 +63,7 @@ public class naiveSolution {
         }
     }
 
-    public int getOperationCount() {
+    public long getOperationCount() {
         return operationCount;
     }
 }

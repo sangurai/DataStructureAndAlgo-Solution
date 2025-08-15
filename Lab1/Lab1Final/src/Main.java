@@ -6,9 +6,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 public class Main {
-
     public static void main(String[] args) {
-
         //PREPARE TEST CASE
         int[] xV = {111, 60, 42, 11, 7854, 89406024, 742271756};
         int[] yV = {234, 225, 584010, 13, 4746, 277984, 606228865};
@@ -71,7 +69,7 @@ public class Main {
 
         // Create chart
         JFreeChart chart = ChartFactory.createXYLineChart(
-                "GCD Algorithm Operation Count Comparison",
+                "GCD Algorithm Operation Count Comparison in Log Scale",
                 "Test Case Index",
                 "Operation Count",
                 dataset
@@ -81,9 +79,6 @@ public class Main {
         ChartFrame frame = new ChartFrame("GCD Comparison", chart);
         frame.pack();
         frame.setVisible(true);
-
-
-
 
     }
 }

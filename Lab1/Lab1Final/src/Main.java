@@ -8,8 +8,8 @@ import org.jfree.data.xy.XYSeriesCollection;
 public class Main {
     public static void main(String[] args) {
         //PREPARE TEST CASE
-        int[] xV = {111, 60, 42, 11, 7854, 89406024, 742271756};
-        int[] yV = {234, 225, 584010, 13, 4746, 277984, 606228865};
+        int[] xV = {111, 60, 42, 11, 7854, 89406024, 742271756, 975922, 279392, 906443, 2226412, 6061228, 1691980, 3234496, 8356954, 81786288};
+        int[] yV = {234, 225, 584010, 13, 4746, 277984, 606228865, 532283, 946230, 392685, 8648878, 5546440, 1414558, 7268362, 3705742, 61052652};
         ArrayList<Long> oCountNaive = new ArrayList<>();
         ArrayList<Long> oCountSieve = new ArrayList<>();
         ArrayList<Long> oCountEff = new ArrayList<>();
